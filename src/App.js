@@ -5,6 +5,7 @@ import ListaPeliculas from "./components/ListaPeliculas";
 import Formulario from "./components/Formulario";
 import AddFavoritas from "./components/AddFavoritas";
 import EliminarFavoritas from "./components/EliminarFavoritas";
+import Swal from "sweetalert2";
 
 function App() {
   const [peliculas, setPeliculas] = useState([]);
@@ -42,17 +43,41 @@ function App() {
   };
 
   const addPeliFavorita = (pelicula) => {
+    Swal.fire({
+      title: "Película agregada",
+      text: "La película fue agregada a su lista de favoritos.",
+      icon: "success",
+      confirmButtonText: "Aceptar",
+    });
     const nuevoArregloFavoritas = [...favoritas, pelicula];
     setFavoritas(nuevoArregloFavoritas);
     guardarLS(nuevoArregloFavoritas);
   };
 
   const eliminarPeliFavorita = (pelicula) => {
-    const nuevoArregloFavoritas = favoritas.filter(
-      (favorita) => favorita.imdbID !== pelicula.imdbID
-    );
-    setFavoritas(nuevoArregloFavoritas);
-    guardarLS(nuevoArregloFavoritas);
+    Swal.fire({
+      title: "¿Seguro que desea eliminar?",
+      text: "Está seguro que desea eliminarla de su lista de favoritos.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const nuevoArregloFavoritas = favoritas.filter(
+          (favorita) => favorita.imdbID !== pelicula.imdbID
+        );
+        setFavoritas(nuevoArregloFavoritas);
+        guardarLS(nuevoArregloFavoritas);
+        Swal.fire(
+          "Película eliminada!",
+          "La película fue eliminada de su lista de favoritos.",
+          "success"
+        );
+      }
+    });
   };
 
   return (
