@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import Carousel from "react-elastic-carousel";
 import Item from "./Item";
+import imgNoDisponible from "../images/ImagenNoDisponible.png";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -19,7 +20,12 @@ const ListaPeliculas = (props) => {
         {props.peliculas.map((pelicula, index) => (
           <Item>
             <Card className="cardContenedor">
-              <Card.Img variant="top" src={pelicula.Poster} />
+              <Card.Img
+                variant="top"
+                src={
+                  pelicula.Poster !== "N/A" ? pelicula.Poster : imgNoDisponible
+                }
+              />
               <Card.Body>
                 <Card.Title>{pelicula.Title}</Card.Title>
               </Card.Body>
