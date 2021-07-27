@@ -6,6 +6,7 @@ import Formulario from "./components/Formulario";
 import AddFavoritas from "./components/AddFavoritas";
 import EliminarFavoritas from "./components/EliminarFavoritas";
 import Swal from "sweetalert2";
+import ListaFavoritas from "./components/ListaFavoritas";
 
 function App() {
   const [peliculas, setPeliculas] = useState([]);
@@ -84,20 +85,40 @@ function App() {
     <div>
       <Formulario busqueda={busqueda} setBusqueda={setBusqueda}></Formulario>
       <Container className="mt-5">
-        <div className="my-5 row">
+        <div className="my-5">
           <ListaPeliculas
+            titulo={"Películas"}
+            categoria={"movie"}
             peliculas={peliculas}
             handleFavoritasClick={addPeliFavorita}
             componentFavoritas={AddFavoritas}
           ></ListaPeliculas>
         </div>
-        <div className="my-5 row">
-          <h2 className="text-light">Mi Lista</h2>
+        <div className="my-5">
           <ListaPeliculas
+            titulo={"Series"}
+            categoria={"series"}
+            peliculas={peliculas}
+            handleFavoritasClick={addPeliFavorita}
+            componentFavoritas={AddFavoritas}
+          ></ListaPeliculas>
+        </div>
+        <div className="my-5">
+          <ListaPeliculas
+            titulo={"Episodios"}
+            categoria={"episode"}
+            peliculas={peliculas}
+            handleFavoritasClick={addPeliFavorita}
+            componentFavoritas={AddFavoritas}
+          ></ListaPeliculas>
+        </div>
+        <div className="my-5">
+          <ListaFavoritas
+            titulo={"Mi Lista"}
             peliculas={favoritas}
             handleFavoritasClick={eliminarPeliFavorita}
             componentFavoritas={EliminarFavoritas}
-          ></ListaPeliculas>
+          ></ListaFavoritas>
         </div>
       </Container>
     </div>

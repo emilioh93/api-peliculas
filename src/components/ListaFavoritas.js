@@ -11,16 +11,14 @@ const breakPoints = [
   { width: 1200, itemsToShow: 4 },
 ];
 
-const ListaPeliculas = (props) => {
+const ListaFavoritas = (props) => {
   const ComponentFavoritas = props.componentFavoritas;
 
   return (
     <div>
       <h3 className="my-4 text-light">{props.titulo}</h3>
       <Carousel breakPoints={breakPoints}>
-        {props.peliculas.filter((pelicula)=>{
-          return pelicula.Type.includes(props.categoria)
-        }).map((pelicula, index) => (
+        {props.peliculas.map((pelicula, index) => (
           <Item>
             <Card className="cardContenedor">
               <Card.Img
@@ -47,4 +45,4 @@ const ListaPeliculas = (props) => {
   );
 };
 
-export default ListaPeliculas;
+export default ListaFavoritas;

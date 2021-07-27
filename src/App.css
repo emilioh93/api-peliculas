@@ -15,10 +15,12 @@ body {
 :root {
     --amarillo: #f5c518;
     --purpura: #420da3;
+    --gris: #212529;
 }
 
 h1,
-h2 {
+h2,
+h3 {
     font-weight: bold;
 }
 
@@ -56,8 +58,8 @@ h2 {
 .card {
     height: 550px;
     width: 230px;
-    background-color: var(--amarillo)!important;
-    color: var(--purpura)!important;
+    background-color: var(--gris)!important;
+    color: #fff!important;
 }
 
 .card-img-top {
@@ -104,12 +106,12 @@ h2 {
 /* ------------------------------- indicadores ------------------------------ */
 
 .ejXxNI {
-    box-shadow: 0 0 1px 3px var(--amarillo)!important;
+    box-shadow: 0 0 1px 3px var(--gris)!important;
     background-color: var(--purpura)!important;
 }
 
 .jLgnwX {
-    box-shadow: 0 0 1px 3px var(--amarillo)!important;
+    box-shadow: 0 0 1px 3px var(--gris)!important;
 }
 
 
@@ -124,9 +126,9 @@ h2 {
 }
 
 .cGKbZh:hover {
-    box-shadow: 0 0 1px 3px var(--amarillo)!important;
+    box-shadow: 0 0 1px 3px var(--gris)!important;
 }
 
 .ehkxHv:hover {
-    box-shadow: 0 0 1px 3px var(--amarillo)!important;
+    box-shadow: 0 0 1px 3px var(--gris)!important;
 }
