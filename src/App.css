@@ -1,3 +1,53 @@
+/* -------------------------------------------------------------------------- */
+
+
+/*                                   General                                  */
+
+
+/* -------------------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+    background-color: black!important;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2 {
+    font-weight: bold;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+
+/*                                   Navbar                                  */
+
+
+/* -------------------------------------------------------------------------- */
+
+#inputBuscar {
+    width: 500px;
+}
+
+.nav-link {
+    color: rgb(172, 169, 169)!important;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #fff!important;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+
+/*                                    Cards                                   */
+
+
+/* -------------------------------------------------------------------------- */
+
 .card {
     height: 550px;
 }
@@ -28,7 +78,7 @@
     transition: 0.5s ease;
     opacity: 0;
     bottom: 0;
-    font-size: 20px;
-    padding: 80px;
+    font-size: 18px;
+    padding: 60px 0px;
     text-align: center;
 }

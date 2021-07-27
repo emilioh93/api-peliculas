@@ -54,24 +54,26 @@ function App() {
   };
 
   return (
-    <Container className="mt-5">
+    <div>
       <Formulario busqueda={busqueda} setBusqueda={setBusqueda}></Formulario>
-      <div className="my-5 row">
-        <ListaPeliculas
-          peliculas={peliculas}
-          handleFavoritasClick={addPeliFavorita}
-          componentFavoritas={AddFavoritas}
-        ></ListaPeliculas>
-      </div>
-      <h1>Favoritas</h1>
-      <div className="my-5 row">
-        <ListaPeliculas
-          peliculas={favoritas}
-          handleFavoritasClick={eliminarPeliFavorita}
-          componentFavoritas={EliminarFavoritas}
-        ></ListaPeliculas>
-      </div>
-    </Container>
+      <Container className="mt-5">
+        <div className="my-5 row">
+          <ListaPeliculas
+            peliculas={peliculas}
+            handleFavoritasClick={addPeliFavorita}
+            componentFavoritas={AddFavoritas}
+          ></ListaPeliculas>
+        </div>
+        <div className="my-5 row">
+          <h2 className="text-light">Mi Lista</h2>
+          <ListaPeliculas
+            peliculas={favoritas}
+            handleFavoritasClick={eliminarPeliFavorita}
+            componentFavoritas={EliminarFavoritas}
+          ></ListaPeliculas>
+        </div>
+      </Container>
+    </div>
   );
 }
 
