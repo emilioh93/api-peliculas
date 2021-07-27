@@ -1,10 +1,11 @@
+import React, { useState, useEffect } from "react";
 import "./App.css";
-import { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Carrusel from "./components/Carrusel";
 import Formulario from "./components/Formulario";
 import AddFavoritas from "./components/AddFavoritas";
 import EliminarFavoritas from "./components/EliminarFavoritas";
-import Carrusel from "./components/Carrusel";
+import { Container } from "react-bootstrap";
 
 function App() {
   const [peliculas, setPeliculas] = useState([]);
@@ -30,7 +31,10 @@ function App() {
     const peliculasFavoritas = JSON.parse(
       localStorage.getItem("react-agregar-pelicula-favoritos")
     );
-    setFavoritas(peliculasFavoritas);
+
+    if (peliculasFavoritas) {
+      setFavoritas(peliculasFavoritas);
+    }
   }, []);
 
   const guardarLS = (items) => {
@@ -50,12 +54,10 @@ function App() {
     const nuevoArregloFavoritas = favoritas.filter(
       (favorita) => favorita.imdbID !== pelicula.imdbID
     );
+    
     setFavoritas(nuevoArregloFavoritas);
     guardarLS(nuevoArregloFavoritas);
   };
-
-  console.log(peliculas);
-
 
   return (
     <div>

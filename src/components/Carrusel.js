@@ -10,23 +10,21 @@ const Carrusel = (props) => {
   return (
     <div className="mb-4">
       <h3 className="text-light">{props.titulo}</h3>
-      <OwlCarousel items={5} className="owl-theme"  nav margin={8}>
+      <OwlCarousel items={5} className="owl-theme" nav margin={8}>
         {props.peliculas.map((pelicula, index) => (
-          <div>
-            <Card className="cardContenedor">
-              <Card.Img variant="top" src={pelicula.Poster} />
-              <Card.Body>
-                <Card.Title>{pelicula.Title}</Card.Title>
-              </Card.Body>
-              <Card.Footer>{pelicula.Year}</Card.Footer>
-              <div
-                onClick={() => props.handleFavoritasClick(pelicula)}
-                className="overlay"
-              >
-                <ComponentFavoritas></ComponentFavoritas>
-              </div>
-            </Card>
-          </div>
+          <Card className="cardContenedor">
+            <Card.Img variant="top" src={pelicula.Poster} alt="poster película" />
+            <Card.Body>
+              <Card.Title>{pelicula.Title}</Card.Title>
+            </Card.Body>
+            <Card.Footer>{pelicula.Year}</Card.Footer>
+            <div
+              onClick={() => props.handleFavoritasClick(pelicula)}
+              className="overlay"
+            >
+              <ComponentFavoritas></ComponentFavoritas>
+            </div>
+          </Card>
         ))}
       </OwlCarousel>
     </div>
