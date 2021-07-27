@@ -8,8 +8,9 @@ const Carrusel = (props) => {
   const ComponentFavoritas = props.componentFavoritas;
 
   return (
-    <div>
-      <OwlCarousel items={5} className="owl-theme" loop nav margin={8}>
+    <div className="mb-4">
+      <h3 className="text-light">{props.titulo}</h3>
+      <OwlCarousel items={5} className="owl-theme"  nav margin={8}>
         {props.peliculas.map((pelicula, index) => (
           <div>
             <Card className="cardContenedor">

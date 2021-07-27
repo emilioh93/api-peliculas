@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
-import ListaPeliculas from "./components/ListaPeliculas";
 import Formulario from "./components/Formulario";
 import AddFavoritas from "./components/AddFavoritas";
 import EliminarFavoritas from "./components/EliminarFavoritas";
@@ -17,6 +16,7 @@ function App() {
 
     const response = await fetch(url);
     const responseJson = await response.json();
+
     if (responseJson.Search) {
       setPeliculas(responseJson.Search);
     }
@@ -54,30 +54,25 @@ function App() {
     guardarLS(nuevoArregloFavoritas);
   };
 
+  console.log(peliculas);
+
+
   return (
     <div>
       <Formulario busqueda={busqueda} setBusqueda={setBusqueda}></Formulario>
       <Container className="mt-5">
-        {/* <div className="my-5 row">
-          <ListaPeliculas
-            peliculas={peliculas}
-            handleFavoritasClick={addPeliFavorita}
-            componentFavoritas={AddFavoritas}
-          ></ListaPeliculas>
-        </div> */}
         <Carrusel
+          titulo={"Resultados"}
           peliculas={peliculas}
           handleFavoritasClick={addPeliFavorita}
           componentFavoritas={AddFavoritas}
         ></Carrusel>
-        <div className="my-5 row">
-          <h2 className="text-light">Mi Lista</h2>
-          <ListaPeliculas
-            peliculas={favoritas}
-            handleFavoritasClick={eliminarPeliFavorita}
-            componentFavoritas={EliminarFavoritas}
-          ></ListaPeliculas>
-        </div>
+        <Carrusel
+          titulo={"Mi Lista"}
+          peliculas={favoritas}
+          handleFavoritasClick={eliminarPeliFavorita}
+          componentFavoritas={EliminarFavoritas}
+        ></Carrusel>
       </Container>
     </div>
   );
