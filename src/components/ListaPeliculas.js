@@ -2,10 +2,10 @@ import React from "react";
 import { Card } from "react-bootstrap";
 
 const ListaPeliculas = (props) => {
-  const ComponentFavoritos = props.componentFavoritos;
+  const ComponentFavoritas = props.componentFavoritas;
 
   return (
-    <>
+    <div>
       {props.peliculas.map((pelicula, index) => (
         <div className="mb-4 col-md-3 col-sm-12">
           <Card className="cardContenedor">
@@ -14,13 +14,13 @@ const ListaPeliculas = (props) => {
               <Card.Title>{pelicula.Title}</Card.Title>
             </Card.Body>
             <Card.Footer>{pelicula.Year}</Card.Footer>
-            <div className="overlay">
-              <ComponentFavoritos></ComponentFavoritos>
+            <div onClick={() => props.handleFavoritasClick(pelicula)} className="overlay">
+              <ComponentFavoritas></ComponentFavoritas>
             </div>
           </Card>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

@@ -3,19 +3,20 @@ import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import ListaPeliculas from "./components/ListaPeliculas";
 import Formulario from "./components/Formulario";
-import AddFavoritos from "./components/AddFavoritos";
+import AddFavoritas from "./components/AddFavoritas";
+import EliminarFavoritas from "./components/EliminarFavoritas";
 
 function App() {
   const [peliculas, setPeliculas] = useState([]);
-  const [favoritos, setFavoritos] = useState([]);
-  const [busqueda, setBusqueda] = useState('');
+  const [favoritas, setFavoritas] = useState([]);
+  const [busqueda, setBusqueda] = useState("");
 
   const consultarAPI = async (busqueda) => {
     const url = `http://www.omdbapi.com/?s=${busqueda}&apikey=f0f213df`;
 
     const response = await fetch(url);
     const responseJson = await response.json();
-    if(responseJson.Search){
+    if (responseJson.Search) {
       setPeliculas(responseJson.Search);
     }
   };
@@ -24,11 +25,51 @@ function App() {
     consultarAPI(busqueda);
   }, [busqueda]);
 
+  useEffect(() => {
+    const peliculasFavoritas = JSON.parse(
+      localStorage.getItem("react-agregar-pelicula-favoritos")
+    );
+    setFavoritas(peliculasFavoritas);
+  }, []);
+
+  const guardarLS = (items) => {
+    localStorage.setItem(
+      "react-agregar-pelicula-favoritos",
+      JSON.stringify(items)
+    );
+  };
+
+  const addPeliFavorita = (pelicula) => {
+    const nuevoArregloFavoritas = [...favoritas, pelicula];
+    setFavoritas(nuevoArregloFavoritas);
+    guardarLS(nuevoArregloFavoritas);
+  };
+
+  const eliminarPeliFavorita = (pelicula) => {
+    const nuevoArregloFavoritas = favoritas.filter(
+      (favorita) => favorita.imdbID !== pelicula.imdbID
+    );
+    setFavoritas(nuevoArregloFavoritas);
+    guardarLS(nuevoArregloFavoritas);
+  };
+
   return (
     <Container className="mt-5">
       <Formulario busqueda={busqueda} setBusqueda={setBusqueda}></Formulario>
       <div className="my-5 row">
-        <ListaPeliculas peliculas={peliculas} componentFavoritos={AddFavoritos}></ListaPeliculas>
+        <ListaPeliculas
+          peliculas={peliculas}
+          handleFavoritasClick={addPeliFavorita}
+          componentFavoritas={AddFavoritas}
+        ></ListaPeliculas>
+      </div>
+      <h1>Favoritas</h1>
+      <div className="my-5 row">
+        <ListaPeliculas
+          peliculas={favoritas}
+          handleFavoritasClick={eliminarPeliFavorita}
+          componentFavoritas={EliminarFavoritas}
+        ></ListaPeliculas>
       </div>
     </Container>
   );
