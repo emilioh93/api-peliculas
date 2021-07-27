@@ -50,11 +50,12 @@ h2 {
 
 .card {
     height: 550px;
+    width: 230px;
 }
 
 .card-img-top {
     height: 400px;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 .cardContenedor {
