@@ -29,7 +29,9 @@ function App() {
     const peliculasFavoritas = JSON.parse(
       localStorage.getItem("react-agregar-pelicula-favoritos")
     );
-    setFavoritas(peliculasFavoritas);
+    if (peliculasFavoritas) {
+      setFavoritas(peliculasFavoritas);
+    }
   }, []);
 
   const guardarLS = (items) => {
