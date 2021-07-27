@@ -5,6 +5,7 @@ import ListaPeliculas from "./components/ListaPeliculas";
 import Formulario from "./components/Formulario";
 import AddFavoritas from "./components/AddFavoritas";
 import EliminarFavoritas from "./components/EliminarFavoritas";
+import Carrusel from "./components/Carrusel";
 
 function App() {
   const [peliculas, setPeliculas] = useState([]);
@@ -57,13 +58,18 @@ function App() {
     <div>
       <Formulario busqueda={busqueda} setBusqueda={setBusqueda}></Formulario>
       <Container className="mt-5">
-        <div className="my-5 row">
+        {/* <div className="my-5 row">
           <ListaPeliculas
             peliculas={peliculas}
             handleFavoritasClick={addPeliFavorita}
             componentFavoritas={AddFavoritas}
           ></ListaPeliculas>
-        </div>
+        </div> */}
+        <Carrusel
+          peliculas={peliculas}
+          handleFavoritasClick={addPeliFavorita}
+          componentFavoritas={AddFavoritas}
+        ></Carrusel>
         <div className="my-5 row">
           <h2 className="text-light">Mi Lista</h2>
           <ListaPeliculas

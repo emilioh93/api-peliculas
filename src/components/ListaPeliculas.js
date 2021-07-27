@@ -14,7 +14,10 @@ const ListaPeliculas = (props) => {
               <Card.Title>{pelicula.Title}</Card.Title>
             </Card.Body>
             <Card.Footer>{pelicula.Year}</Card.Footer>
-            <div onClick={() => props.handleFavoritasClick(pelicula)} className="overlay">
+            <div
+              onClick={() => props.handleFavoritasClick(pelicula)}
+              className="overlay"
+            >
               <ComponentFavoritas></ComponentFavoritas>
             </div>
           </Card>
