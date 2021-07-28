@@ -14,7 +14,7 @@ function App() {
   const [busqueda, setBusqueda] = useState("");
 
   const consultarAPI = async (busqueda) => {
-    const url = `http://www.omdbapi.com/?s=${busqueda}&apikey=f0f213df`;
+    const url = `https://www.omdbapi.com/?s=${busqueda}&apikey=f0f213df`;
 
     const response = await fetch(url);
     const responseJson = await response.json();
