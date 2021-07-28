@@ -2,7 +2,7 @@ import React from "react";
 
 const AddFavoritas = () => {
   return (
-    <div className="text-light">
+    <div className="text-light textoOverlay">
       <span className="mr-1">Agregar a Mi Lista </span>
       <svg
         width="24"

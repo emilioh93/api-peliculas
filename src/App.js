@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Carrusel from "./components/Carrusel";
 import Formulario from "./components/Formulario";
 import AddFavoritas from "./components/AddFavoritas";
 import EliminarFavoritas from "./components/EliminarFavoritas";
-import Swal from "sweetalert2";
 import ListaFavoritas from "./components/ListaFavoritas";
+import ListaPeliculas from "./components/ListaPeliculas";
+import Swal from "sweetalert2";
+import { Container } from "react-bootstrap";
 
 function App() {
   const [peliculas, setPeliculas] = useState([]);

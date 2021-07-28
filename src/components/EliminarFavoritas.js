@@ -2,7 +2,7 @@ import React from "react";
 
 const EliminarFavoritas = () => {
   return (
-    <div className="text-light">
+    <div className="text-light textoOverlay">
       <span>Eliminar de favoritas </span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
