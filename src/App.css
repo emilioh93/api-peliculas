@@ -12,6 +12,12 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+:root {
+    --amarillo: #f5c518;
+    --purpura: #420da3;
+    --gris: #212529;
+}
+
 h1,
 h2,
 h3 {
@@ -50,12 +56,24 @@ h3 {
 /* -------------------------------------------------------------------------- */
 
 .card {
+<<<<<<< HEAD
     height: 400px;
 }
 
 .card-img-top {
     height: 240px;
     object-fit: fill;
+=======
+    height: 550px;
+    width: 230px;
+    background-color: var(--gris)!important;
+    color: #fff!important;
+}
+
+.card-img-top {
+    height: 400px;
+    object-fit: cover;
+>>>>>>> main
 }
 
 .cardContenedor {
@@ -82,4 +100,44 @@ h3 {
     font-size: 18px;
     padding: 66px 0px;
     text-align: center;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+
+/*                                  Carousel                                  */
+
+
+/* -------------------------------------------------------------------------- */
+
+
+/* ------------------------------- indicadores ------------------------------ */
+
+.ejXxNI {
+    box-shadow: 0 0 1px 3px var(--gris)!important;
+    background-color: var(--purpura)!important;
+}
+
+.jLgnwX {
+    box-shadow: 0 0 1px 3px var(--gris)!important;
+}
+
+
+/* --------------------------------- botones -------------------------------- */
+
+.cGKbZh {
+    box-shadow: 0 0 1px 3px grey!important;
+}
+
+.ehkxHv {
+    box-shadow: 0 0 1px 3px grey!important;
+}
+
+.cGKbZh:hover {
+    box-shadow: 0 0 1px 3px var(--gris)!important;
+}
+
+.ehkxHv:hover {
+    box-shadow: 0 0 1px 3px var(--gris)!important;
 }
